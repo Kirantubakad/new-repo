@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                git url: 'https://github.com/Havoc13Naveen/calculator.git'
+                git url: 'https://github.com/Kirantubakad/mavenproject.git'
                 stash 'source'
             }
         }
