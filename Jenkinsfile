@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                git url: 'https://github.com/Kirantubakad/mavenproject.git'
+                git url: 'https://github.com/Havoc13Naveen/calculator.git'
                 stash 'source'
             }
         }
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 unstash 'source'
                 sh  'mvn clean install'
-            }
-        }
+            }
+        }
     }
-}   
+}
