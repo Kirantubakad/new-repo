@@ -3,7 +3,7 @@ pipeline{
      stages{
          stage('git clone'){
             steps {
-                git credentialsId: 'git_cred', url: 'https://github.com/Kirantubakad/mavenproject.git'
+                git 'https://github.com/Kirantubakad/mavenproject.git'
             }
          }
          stage('build maven'){
