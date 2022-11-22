@@ -1,17 +1,20 @@
-pipeline{
+pipeline {
     agent any
-     stages{
-         stage('git clone'){
+    tools {
+        maven 'maven'
+    }
+    stages {
+        stage('build') {
             steps {
-                git 'https://github.com/Kirantubakad/mavenproject.git'
+                git url: 'https://github.com/Kirantubakad/mavenproject.git'
+                stash 'source'
             }
-         }
-         stage('build maven'){
-           steps{
-              sh '''
-                mvn clean install
-                '''
-             }
-         }
-     }
-}
+        }
+        stage('deploy') {
+            steps {
+                unstash 'source'
+                sh  'mvn clean install'
+            }
+        }
+    }
+}   
